@@ -2,27 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>I Love You Heart</title>
+  <title>I LIKE U Heart</title>
+  <style>
+    body {
+      background-color: black;
+      color: pink;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- เชื่อมกับ style.css -->
-  <link rel="stylesheet" href="style.css">
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+
+    .heart span {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 14px;
+      animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    #love-video {
+      display: none; /* ซ่อนตอนแรก */
+    }
+  </style>
 </head>
 <body>
 
-  <audio autoplay loop>
-  <source src="love.mp4" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  <!-- ✅ วิดีโอ (ซ่อนไว้ จนกว่าจะคลิกหัวใจ) -->
+  <video id="love-video" loop>
+    <source src="love.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <!-- หัวใจ I Love You -->
+  <!-- ✅ หัวใจข้อความ -->
   <div class="heart" id="heart"></div>
 
-  <!-- สร้างหัวใจด้วย JavaScript -->
   <script>
     const heart = document.getElementById('heart');
-    const text = 'I Love You ';
+    const video = document.getElementById('love-video');
+    const text = 'I LIKE YOU ';
     const count = 100;
 
+    // วาดข้อความเป็นรูปหัวใจ
     for (let i = 0; i < count; i++) {
       const angle = i * (2 * Math.PI / count);
       const x = 160 * Math.pow(Math.sin(angle), 3);
@@ -34,6 +68,13 @@
       span.style.top = `${y}px`;
       heart.appendChild(span);
     }
+
+    // ✅ เมื่อคลิกหัวใจ → เล่นวิดีโอ
+    heart.addEventListener('click', () => {
+      video.style.display = 'block';
+      video.play();
+    });
   </script>
+
 </body>
 </html>

@@ -2,40 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>I like U Heart</title>
-  <style>
-    body {
-      background-color: black;
-      color: pink;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      overflow: hidden;
-    }
-    .heart {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    span {
-      position: absolute;
-      white-space: nowrap;
-      font-size: 14px;
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  </style>
+  <title>I Love You Heart</title>
+
+  <!-- เชื่อมกับ style.css -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ✅ จุดที่ต้อง "เพิ่มเข้าไป" สำหรับเพลง -->
+  <audio autoplay loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <!-- 🔼 จบส่วนเพลง -->
+
+  <!-- หัวใจ I Love You -->
   <div class="heart" id="heart"></div>
 
+  <!-- สร้างหัวใจด้วย JavaScript -->
   <script>
     const heart = document.getElementById('heart');
-    const text = 'I LIKE YOU ';
+    const text = 'I Love You ';
     const count = 100;
 
     for (let i = 0; i < count; i++) {
